@@ -1,4 +1,5 @@
 QT += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,13 +13,23 @@ CONFIG += c++17
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        chat/chatclientview.cpp \
+        chat/chatclientmodel.cpp \
+    chat/chatserverview.cpp \
+    chat/chatservermodel.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        chat/chatclientview.h \
+        chat/chatclientmodel.h \
+    chat/chatserverview.h \
+    chat/chatservermodel.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        chat/chatclientview.ui \
+    chat/chatserverview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
