@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tabWidget->addTab(new ChatClientView(new ChatClientModel), "Chat client");
     ui->tabWidget->addTab(new ChatServerView(new ChatServerModel), "Chat server");
+    ui->tabWidget->addTab(new ChatClientView(new ChatClientModel), "Chat client");
 }
 
 MainWindow::~MainWindow()

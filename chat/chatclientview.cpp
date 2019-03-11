@@ -1,6 +1,7 @@
 #include "chatclientview.h"
 #include "ui_chatclientview.h"
 #include <QSplitter>
+#include <QAbstractItemView>
 
 ChatClientView::ChatClientView(ChatClientModel *model) :
     ui(new Ui::ChatClientView)
@@ -9,8 +10,8 @@ ChatClientView::ChatClientView(ChatClientModel *model) :
     ui->setupUi(this);
     ui->stackedWidget->setCurrentWidget(ui->loginPage);
     QSplitter *splitter = new QSplitter;
-    chatEdit->setEnabled(false);
-    usersListWidget->setEnabled(false);
+    chatEdit->setReadOnly(true);
+    usersListWidget->setSelectionMode(QAbstractItemView::NoSelection);
     splitter->addWidget(chatEdit);
     splitter->addWidget(usersListWidget);
     ui->topLayout->addWidget(splitter);
@@ -33,7 +34,7 @@ ChatClientView::ChatClientView(ChatClientModel *model) :
     connect(model, &ChatClientModel::usersListChanged, this, [=](const QStringList &usersList){
         usersListWidget->clear();
         foreach(QString user, usersList){
-            new QListWidgetItem(user, usersListWidget);
+            new QListWidgetItem(QPixmap(":/user.png"), user, usersListWidget);
         }
     });
     connect(model, &ChatClientModel::reciveMessage, this, [=](const QString &sender, const QString &message) {

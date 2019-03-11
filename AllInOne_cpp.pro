@@ -16,20 +16,20 @@ SOURCES += \
         mainwindow.cpp \
         chat/chatclientview.cpp \
         chat/chatclientmodel.cpp \
-    chat/chatserverview.cpp \
-    chat/chatservermodel.cpp
+        chat/chatserverview.cpp \
+        chat/chatservermodel.cpp
 
 HEADERS += \
         mainwindow.h \
         chat/chatclientview.h \
         chat/chatclientmodel.h \
-    chat/chatserverview.h \
-    chat/chatservermodel.h
+        chat/chatserverview.h \
+        chat/chatservermodel.h
 
 FORMS += \
         mainwindow.ui \
         chat/chatclientview.ui \
-    chat/chatserverview.ui
+        chat/chatserverview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
