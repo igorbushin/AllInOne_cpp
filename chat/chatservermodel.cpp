@@ -35,13 +35,12 @@ void ChatServerModel::socketReadyRead()
     while(client->canReadLine())
     {
         QString line = QString::fromUtf8(client->readLine()).trimmed();
-        emit somethingHappened("Read line:" + line);
 
         QRegExp meRegex("^/me:(.*)$");
         if(meRegex.indexIn(line) != -1)
         {
             QString user = meRegex.cap(1);
-            if(user.isEmpty()) {}
+            emit somethingHappened("User:" + user);
             users[client] = user;
             foreach(QTcpSocket *client, clients)
                 client->write(QString("Server:" + user + " has joined.\n").toUtf8());
