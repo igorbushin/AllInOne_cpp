@@ -12,9 +12,8 @@ public:
     explicit ChatClientModel(QObject *parent = nullptr);
 
 signals:
-    void connected();
-    void disconnected();
-    void reciveMessage(const QString &sender, const QString &message);
+    void connected(bool isConnected);
+    void recivedMessage(const QString &sender, const QString &message);
     void usersListChanged(const QStringList &usersList);
 
 public slots:

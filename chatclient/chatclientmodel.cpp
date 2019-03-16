@@ -37,18 +37,18 @@ void ChatClientModel::socketReadyRead()
         else if(messageRegex.indexIn(line) != -1) {
             QString user = messageRegex.cap(1);
             QString message = messageRegex.cap(2);
-            emit reciveMessage(user, message);
+            emit recivedMessage(user, message);
         }
     }
 }
 
 void ChatClientModel::socketConnected()
 {
-    emit connected();
+    emit connected(true);
     socket->write(QString("/me:" + name + "\n").toUtf8());
 }
 
 void ChatClientModel::socketDisconnected()
 {
-    emit disconnected();
+    emit connected(false);
 }

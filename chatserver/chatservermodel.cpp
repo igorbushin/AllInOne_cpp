@@ -7,7 +7,7 @@ ChatServerModel::ChatServerModel(QObject *parent) : QTcpServer(parent)
 bool ChatServerModel::run(int port)
 {
     bool success = listen(QHostAddress::Any, static_cast<quint16>(port));
-    emit somethingHappened(success ? "Run" : "Could not listen port " + QString(port));
+    emit somethingHappened(QString(success ? "Run on port " : "Could not listen port ") + QString::number(port));
     return success;
 }
 
@@ -17,6 +17,7 @@ void ChatServerModel::kill()
         client->close();
     }
     close();
+    emit somethingHappened("Server die");
 }
 
 void ChatServerModel::incomingConnection(int socketfd)

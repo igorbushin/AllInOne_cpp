@@ -14,22 +14,28 @@ CONFIG += c++17
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        chat/chatclientview.cpp \
-        chat/chatclientmodel.cpp \
-        chat/chatserverview.cpp \
-        chat/chatservermodel.cpp
+        maincontroller.cpp \
+        chatclient/chatclientview.cpp \
+        chatclient/chatclientmodel.cpp \
+        chatclient/chatclientcontroller.cpp \
+        chatserver/chatserverview.cpp \
+        chatserver/chatservermodel.cpp \
+        chatserver/chatservercontroller.cpp
 
 HEADERS += \
         mainwindow.h \
-        chat/chatclientview.h \
-        chat/chatclientmodel.h \
-        chat/chatserverview.h \
-        chat/chatservermodel.h
+        maincontroller.h \
+        chatclient/chatclientview.h \
+        chatclient/chatclientmodel.h \
+        chatclient/chatclientcontroller.h \
+        chatserver/chatserverview.h \
+        chatserver/chatservermodel.h \
+        chatserver/chatservercontroller.h
 
 FORMS += \
         mainwindow.ui \
-        chat/chatclientview.ui \
-        chat/chatserverview.ui
+        chatclient/chatclientview.ui \
+        chatserver/chatserverview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
